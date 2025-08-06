@@ -31,30 +31,6 @@ Input Needed:
 - **Pitcher ID** (e.g., "colege01" for Gerrit Cole)
 - **Team Abbreviation** (e.g., "NYY" for Yankees)
 
-Project Structure
------------------
-
-so_predict/
-├── app/
-│   └── requirements.txt, README.md
-├── clusting/
-│   └── Clustering notebooks & plots
-├── data/
-│   └── Raw and processed data
-├── data_aq_scripts/
-│   └── Scrapers and data loaders
-├── feature_selection_eda/
-│   └── Feature analysis and model selection
-├── models/
-│   └── Saved model files
-├── mlartifacts/
-│   └── MLflow artifacts
-├── mlflow_results/
-│   └── Experiment tracking results
-├── pediction/
-│   └── Notebooks for result display
-├── training_scripts/
-│   └── Model training and tuning scripts
 
 Data Sources
 ------------
