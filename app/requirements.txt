@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+streamlit
+pydantic
+requests
+pandas
+scikit-learn
+torch
+duckdb
+selenium
+lxml
