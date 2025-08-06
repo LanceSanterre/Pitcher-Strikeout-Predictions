@@ -1,63 +1,75 @@
-# MLB Starting Pitcher Strikeout Predictions
+MLB Starting Pitcher Strikeout Predictions
+==========================================
 
-This project predicts strikeouts for MLB starting pitchers using machine learning models, combined with live web scraping to keep data fresh and relevant. The models are trained on historical game logs and advanced statistics pulled from sources like Baseball Reference and MLB Savant.
+This project predicts strikeouts for MLB starting pitchers using machine learning, combined with live web scraping to keep data current. Models are trained on historical pitcher game logs and advanced statistics from Baseball Reference and MLB Savant.
 
----
+Project Overview
+----------------
+- Goal: Predict how many strikeouts each MLB starting pitcher will have in today's games.
+- Approach:
+  - Scrape up-to-date data
+  - Combine pitcher, team, and advanced stat features
+  - Feed into ML classification and regression models
+- Inspiration: Explore the intersection of sports forecasting and machine learning by building a reproducible, end-to-end pipeline.
 
-## 🧠 Overview
+How to Run
+----------
+With the included `starting_pitcher.csv` file, you can now run everything by executing:
 
-- **Goal**: Use machine learning to predict the number of strikeouts for each starting pitcher in MLB games.
-- **Approach**: Gather real-time data using web scraping, process and clean it, then feed it to multiple ML models for prediction.
-- **Inspiration**: Exploring the power of data in sports forecasting and building a pipeline that is both functional and informative.
+    python data_aq_scripts/main_data_aqu.py
 
----
+This script automates:
+- Scraping pitcher logs
+- Scraping team logs
+- Combining all data
+- Running classification & regression predictions
 
-## 🛠️ How to Run
+Requirements
+------------
+- pandas
+- selenium
+- scikit-learn
+- ChromeDriver must be installed and in your PATH for web scraping
 
-### 1. Scrape Data
-Run the scraping scripts to gather up-to-date data:
-- `pitcher_scraper.py` – Scrapes individual pitcher game logs.
-- `team.py` – Scrapes team-level stats.
+Input Format
+------------
+The `starting_pitcher.csv` file should contain:
 
-### 2. Combine Data
-- Use `data_combining.py` to merge pitcher, team, and historical data.
+    player_id,team_acronym
+    colege01,NYY
 
-### 3. Train Models (optional if using pre-trained models)
-- Classification: `model_classification_training.py`
-- Regression: `model_regression_training.py`
+This is used to scrape the correct data and generate predictions.
 
-### 4. Run Predictions
-Use `full_run.py` or run individual scripts:
-- `regression_pred.py`
-- `class_pred.py`
+Project Structure (partial)
+---------------------------
+so_predict/
+│
+├── data_aq_scripts/
+│   ├── main_data_aqu.py          # Entry point script
+│   ├── pitcher_scraper.py        # Scrapes pitcher game logs
+│   ├── team.py                   # Scrapes team batting stats
+│   ├── data_combining.py         # Merges all data sources
+│
+├── training_scripts/
+│   ├── model_regression_training.py
+│   ├── model_classification_training.py
+│   ├── regression_pred.py
+│   ├── class_pred.py
+│
+├── app/                          # Streamlit + FastAPI app code
+│
+├── models/                       # Trained models (excluded via .gitignore)
+├── data/                         # Raw/scraped data (excluded via .gitignore)
+├── README.md
+├── .gitignore
 
-**Input Needed:**
-- Pitcher ID (e.g., `colege01` for Gerrit Cole)
-- Team Abbreviation (e.g., `NYY` for Yankees)
+Data Sources
+------------
+- https://www.baseball-reference.com
+- https://baseballsavant.mlb.com
 
----
-
-## 📁 Repository Notes
-
-To keep the repo clean and secure, the following items are **excluded via `.gitignore`**:
-- All local datasets (`data/`)
-- Saved model files (`models/`)
-- MLflow tracking logs (`mlruns/`)
-- Artifacts (`mlartifacts/`)
-- CSVs and pickled objects (`*.csv`, `*.pkl`)
-- Jupyter checkpoint and system files (`__pycache__/`, `.DS_Store`, `*.ipynb_checkpoints/`)
-
-If you're cloning this project, you’ll need to run the scraping and training scripts to rebuild the full environment.
-
----
-
-## 📊 Data Sources
-
-- [Baseball Reference](https://www.baseball-reference.com)
-- [MLB Savant](https://baseballsavant.mlb.com)
-
----
-
-## 👨‍💻 Author
-
-**Lance Santerre**
+Author
+------
+Lance Santerre
+Built as a demonstration of real-world sports ML pipelines.
+Happy to walk through any part of the codebase or discuss further improvements.
