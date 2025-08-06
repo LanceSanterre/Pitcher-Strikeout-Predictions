@@ -53,7 +53,7 @@ def get_years(start=1, end=100, pitcher_log="NA", inactive="NA"):
 
 # Load pitcher data
 pitchers = pd.read_csv(
-    "//Users/lancesanterre/so_predict/data/player_data/starting_pitchers.csv"
+    "starting_pitchers.csv"
 )
 
 # Loop through all pitchers and run the scraper
